@@ -8,7 +8,7 @@ const int alarm_red = 33;
 LiquidCrystal M_LCD(4, 0, 26, 27, 14, 13);
 
 #define SOUND_SPEED 0.034 // in cm/us
-#define SAFE_DISTANCE_BORDER 20
+#define SAFE_DISTANCE 20 // safe distance in cm
 
 volatile bool measure_flag = false;
 long duration;
@@ -72,7 +72,7 @@ void loop() {
 
     
     // Check if the distance is within a safe range
-    if(distanceCm>SAFE_DISTANCE_BORDER){
+    if(distanceCm>SAFE_DISTANCE){
     digitalWrite(greenLed, HIGH);
     analogWrite(alarm_red, 0);
     }
